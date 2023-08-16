@@ -1,0 +1,51 @@
+[
+	{
+		"pregunta": "hola",
+		"respuesta": "Hola, mi nombre es GameHunter, soy un chat bot que ayuda a encontrar tu juego ideal, Como puedo ayudarte?"
+	},
+	{
+		"pregunta": [
+			"como",
+			"estas"
+		],
+		"respuesta": "Me encuentro muy bien gracias por preguntar, y tu como te encuentras?"
+	},
+	{
+		"pregunta": "bien",
+		"respuesta": "Me alegro mucho, puedo ayudarte en algo?"
+	},
+	{
+		"pregunta": [
+			"encontrar",
+			"juego"
+		],
+		"respuesta": "Estoy listo para ayudarte, dime de que genero es el juego que buscas?"
+	},
+	{
+		"pregunta": "genero",
+		"respuesta": "Indicame cual es el genero del juego, por ejemplo (Terror, Aventura, Accion, etc.)"
+	},
+	{
+		"pregunta": "plataforma",
+		"respuesta": "¿En qué plataforma te gustaría jugar? PC, consola, móvil..."
+	},
+	{
+		"pregunta": [
+			"historia",
+			"videojuegos"
+		],
+		"respuesta": "Por supuesto, aquí tienes el resumen de la historia de los videojuegos sin tildes:\nLos videojuegos comenzaron en la decada de 1950 como experimentos en laboratorios de investigacion. En la decada de 1970, Pong de Atari introdujo los juegos arcade, mientras que la decada de 1980 vio el auge de Super Mario Bros. y Tetris. Los anos 90 trajeron juegos en 3D y el crecimiento de los juegos en linea. En la decada de 2000, los graficos mejoraron y los juegos para dispositivos moviles ganaron popularidad. En la actualidad, los videojuegos abarcan una amplia variedad de generos y tecnologias avanzadas, incluyendo consolas de ultima generacion y experiencias de realidad virtual."
+	},
+	{
+		"pregunta": "terror",
+		"respuesta": "que tipo de juegos de terror te gustan? ()."
+	},
+	{
+		"pregunta": "sangre",
+		"respuesta": "¡Claro! Te recomiendo [nombre del juego]. Es un juego de terror emocionante que te mantendrá al borde de tu asiento."
+	},
+	{
+		"pregunta": "accion",
+		"respuesta": "Uno de los juegos de terror más populares es [nombre del juego]. Ha recibido elogios por su atmósfera aterradora y jugabilidad envolvente."
+	}
+]
