@@ -34,11 +34,11 @@
 			"historia",
 			"videojuegos"
 		],
-		"respuesta": "Por supuesto, aquí tienes el resumen de la historia de los videojuegos sin tildes:\nLos videojuegos comenzaron en la decada de 1950 como experimentos en laboratorios de investigacion. En la decada de 1970, Pong de Atari introdujo los juegos arcade, mientras que la decada de 1980 vio el auge de Super Mario Bros. y Tetris. Los anos 90 trajeron juegos en 3D y el crecimiento de los juegos en linea. En la decada de 2000, los graficos mejoraron y los juegos para dispositivos moviles ganaron popularidad. En la actualidad, los videojuegos abarcan una amplia variedad de generos y tecnologias avanzadas, incluyendo consolas de ultima generacion y experiencias de realidad virtual."
+		"respuesta": "Por supuesto, aqui tienes el resumen de la historia de los videojuegos:\nLos videojuegos comenzaron en la decada de 1950 como experimentos en laboratorios de investigacion. En la decada de 1970, Pong de Atari introdujo los juegos arcade, mientras que la decada de 1980 vio el auge de Super Mario Bros. y Tetris. Los anos 90 trajeron juegos en 3D y el crecimiento de los juegos en linea. En la decada de 2000, los graficos mejoraron y los juegos para dispositivos moviles ganaron popularidad. En la actualidad, los videojuegos abarcan una amplia variedad de generos y tecnologias avanzadas, incluyendo consolas de ultima generacion y experiencias de realidad virtual."
 	},
 	{
 		"pregunta": "terror",
-		"respuesta": "que tipo de juegos de terror te gustan? ()."
+		"respuesta": "que tipo de juegos de terror te gustan?."
 	},
 	{
 		"pregunta": "sangre",

@@ -1,30 +1,23 @@
+# -⁻- coding: UTF-8 -*-
 from flask import Flask, render_template, request, jsonify
 import json
 from utils import imprimir_Respuestas2
+from utils import tags
+from utils import generos
+from utils import Conectar_Con_Mongo
+from utils import imprimir_Juego_Final
 
 app = Flask(__name__)
+tags_aBuscar = []
+GeneroSeleccionado = ""
 
-# Carga de datos desde archivos JSON (similares a lo que tenías en tu script original)
 with open("preguntas.json", 'r') as archivo:
     respuestas_preguntas = json.load(archivo)
-
-with open("terror.json", 'r') as archivo:
-    terror_p_r = json.load(archivo)
-
-with open("simulacion.json", 'r') as archivo:
-    simulacion_p_r = json.load(archivo)
-
-with open("estrategia.json", 'r') as archivo:
-    estrategia_p_r = json.load(archivo)
-
-# Definir ruta para la página de chatbot
 
 
 @app.route('/')
 def chatbot_page():
     return render_template('chatbot.html')
-
-# Definir ruta para manejar las solicitudes POST del chatbot
 
 
 @app.route('/chat', methods=['POST'])
@@ -33,43 +26,29 @@ def chat():
     mensaje_usuario = data.get('mensaje', '')
 
     respuesta_bot = ""
+    pregunta = []
 
     usuario_pregunta = mensaje_usuario.lower().split()
-    respuesta_bot = imprimir_Respuestas2(
+    respuesta_bot, pregunta = imprimir_Respuestas2(
         respuestas_preguntas, usuario_pregunta)
 
-    if "encontrar" in usuario_pregunta and "juego" in usuario_pregunta:
-        tags = []
-        pregunta_usuario = mensaje_usuario.lower()
+    cadena_unida = " ".join(pregunta)
 
-        if pregunta_usuario == "terror":
-            respuesta_bot = "¿Qué tipo de juego de terror estás buscando?"
-            tags = terror_p_r
+    if cadena_unida in tags:
+        tags_aBuscar.append(cadena_unida)
 
-        elif pregunta_usuario == "simulacion":
-            respuesta_bot = "¿Qué tipo de juego de simulación estás buscando?"
-            tags = simulacion_p_r
+    for palabra in usuario_pregunta:
+        if palabra in generos:
+            GeneroSeleccionado = palabra
 
-        elif pregunta_usuario == "estrategia":
-            respuesta_bot = "¿Qué tipo de juego de estrategia estás buscando?"
-            tags = estrategia_p_r
+    if len(tags_aBuscar) == 4:
+        collection = Conectar_Con_Mongo(GeneroSeleccionado)
+        elemento_buscado = collection.find_one({"tags": {"$in": tags_aBuscar}})
+        jsonify({"respuesta": "Encontre tu juego ideal!!!"})
+        respuesta_bot = imprimir_Juego_Final(elemento_buscado)
 
-        else:
-            respuesta_bot = "Disculpa, desconozco información acerca de ese tipo de juego"
-
-        if respuesta_bot and tags:
-            while True:
-                pregunta_usuario = mensaje_usuario.lower()
-                if pregunta_usuario == "salir":
-                    break
-
-                usuario_pre = pregunta_usuario.split()
-                temp = imprimir_Respuestas2(tags, usuario_pre)
-                if temp not in tags and temp is not None:
-                    tags.append(temp)
-                    respuesta_bot = temp["respuesta"]
-                else:
-                    break
+    if respuesta_bot == "Entendido reiniciare la busqueda":
+        tags_aBuscar.clear()
 
     if not respuesta_bot:
         respuesta_bot = "No entendí tu pregunta o no tengo información al respecto"
